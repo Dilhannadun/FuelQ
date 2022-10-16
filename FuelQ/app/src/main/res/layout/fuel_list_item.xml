@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayoutCompat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="#fdfff5"
+    android:elevation="3dp">
+
+    <TextView
+        android:id="@+id/txt_ShedName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_SelectShed"
+        android:text="Kumara"
+        android:padding="3dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txt_ShedLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_ShedName"
+        android:text="Mulgampola"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_SelectShed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:drawableEnd="@drawable/ic_chevron_right"
+        android:backgroundTint="#fdfff5"
+        android:elevation="0dp"
+        android:outlineProvider="none"
+        />
+</RelativeLayout>
