@@ -12,6 +12,7 @@ public class Login extends AppCompatActivity {
 
     private TextView resetPassword;
     private Button loginBtn;
+    private Button registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class Login extends AppCompatActivity {
 
         resetPassword = findViewById(R.id.txt_ForgotPassword);
         loginBtn = findViewById(R.id.btn_LoginCustomer);
+        registerBtn = findViewById(R.id.btn_RegisterCustomer);
 
         resetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +36,13 @@ public class Login extends AppCompatActivity {
                 navigateToHome();
             }
         });
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToRegister();
+            }
+        });
     }
 
     public void navigateToResetPassword() {
@@ -43,6 +52,11 @@ public class Login extends AppCompatActivity {
 
     public void navigateToHome() {
         Intent intent = new Intent(this, FuelStationSearch.class);
+        startActivity(intent);
+    }
+
+    public void navigateToRegister() {
+        Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
 }
