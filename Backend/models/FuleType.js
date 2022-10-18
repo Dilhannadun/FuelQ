@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const StationOwnerSchema = new mongoose.Schema({
+const fuelTypeSchema = new mongoose.Schema({
   fuleType: {
     type: String,
     required: true,
@@ -27,4 +27,4 @@ const StationOwnerSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("StationOwner", StationOwnerSchema);
+module.exports = mongoose.model("FuelType", fuelTypeSchema);
