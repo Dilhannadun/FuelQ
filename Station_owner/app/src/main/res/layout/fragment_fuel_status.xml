@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FuelStatusFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/fuel_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="cursive"
+            android:text="@string/fuel_status_title"
+            android:textColor="@color/orange"
+            android:textSize="30dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/a_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fuel_status_title"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="@color/light_indigo"
+            app:strokeWidth="0dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arrival"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/a_menu"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Select Fuel Type">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/arrival_autocomplete"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/arrival_time"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="30dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textAppearance="?attr/textAppearanceBody2"-->
+<!--                        android:textColor="?android:attr/textColorSecondary" />-->
+                    <TextClock
+                        android:id="@+id/textClock1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:format12Hour="hh:mm:ss a"
+                        android:textColor="#F1511B"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+
+                   >
+
+                    <com.google.android.material.button.MaterialButton
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:layout_marginEnd="2dp"
+                        android:textColor="@color/design_default_color_error"
+                        android:text="@string/finished_btn"
+
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:textSize="17dp"
+                        android:textColor="@color/teal_700"
+                        android:text="@string/arrived_btn"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
