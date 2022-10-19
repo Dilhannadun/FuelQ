@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.fuelq.api.FuelStationServices;
+
 public class Login extends AppCompatActivity {
 
     private TextView resetPassword;
@@ -18,6 +20,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        FuelStationServices services = new FuelStationServices(this);
 
         resetPassword = findViewById(R.id.txt_ForgotPassword);
         loginBtn = findViewById(R.id.btn_LoginCustomer);
@@ -33,6 +37,7 @@ public class Login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                services.getTest();
                 navigateToHome();
             }
         });
