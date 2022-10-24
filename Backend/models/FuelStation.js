@@ -20,31 +20,31 @@ const fuelStationSchema = mongoose.Schema({
     petrol95Status: {
         totalAmount: {
             type: Number,
-            required: true
+            required: false
         },
         remaining: {
             type: Number,  
-            required: true
+            required: false
         }
     },
     petrol92Status: {
         totalAmount: {
             type: Number,
-            required: true
+            required: false
         },
         remaining: {
             type: Number,  
-            required: true
+            required: false
         }
     },
     dieselStatus: {
         totalAmount: {
             type: Number,
-            required: true
+            required: false
         },
         remaining: {
             type: Number,  
-            required: true
+            required: false
         }
     },
     queue: [{
