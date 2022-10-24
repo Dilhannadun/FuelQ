@@ -4,30 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".activities.HomeActivity">
 
-    <include
-        android:id="@+id/profile_btn_of_home"
-        layout="@layout/activity_profile_btn"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical"
+        >
+        <include
+            android:id="@+id/profile_btn_of_home"
+            layout="@layout/activity_profile_btn"
+            />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation"/>
+        android:layout_above="@+id/bottom_navigation" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner"
-        app:menu="@menu/bottom_nav_menu"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
         android:elevation="3dp"
-        />
+        app:menu="@menu/bottom_nav_menu" />
 
 
 </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/lg_ph_username"
+        android:hint="@string/lg_ph_email"
         android:layout_marginTop="100dp"
         android:layout_below="@+id/login_title">
         <com.google.android.material.textfield.TextInputEditText

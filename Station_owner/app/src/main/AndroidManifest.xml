@@ -10,26 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Station_owner">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".ProfileBtnActivity"
+            android:name=".activities.ProfileBtnActivity"
             android:exported="true"
             android:label="@string/title_activity_profile_btn"
             android:theme="@style/Theme.Station_owner.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_fuel_status"
             android:theme="@style/Theme.Station_owner.NoActionBar" />
         <activity
-            android:name=".BackBtnActivity"
+            android:name=".activities.BackBtnActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
