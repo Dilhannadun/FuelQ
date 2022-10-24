@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_ShedName"
         android:text="Mulgampola"
+        android:padding="3dp"
         android:textSize="12sp" />
 
     <Button
