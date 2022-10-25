@@ -20,7 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Fuel Station Name"
-            android:textSize="16sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +50,17 @@
                     android:id="@+id/txt_Petrol95Header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/txt_Petrol95Header"
                     android:layout_alignParentStart="true"
-                    android:layout_margin="8dp"
-                    android:text="Petrol 95" />
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+
+                    android:lineSpacingExtra="0sp"
+                    android:text="Petrol 95"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_Petrol95FuelStatus"
@@ -61,7 +69,93 @@
                     android:layout_below="@id/txt_Petrol95Header"
                     android:layout_alignStart="@+id/txt_Petrol95Header"
                     android:text="Fuel Status"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol95FuelStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95Header"
+                    android:layout_toEndOf="@id/txt_Petrol95FuelStatus"
+                    android:layout_marginLeft="32dp"
+                    android:text="Available"
                     android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_Petrol95QueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95FuelStatus"
+                    android:layout_alignStart="@+id/txt_Petrol95Header"
+                    android:layout_marginTop="5dp"
+                    android:text="Queue length"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol95QueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95FuelStatus"
+                    android:layout_toEndOf="@id/txt_Petrol95QueueLength"
+                    android:layout_alignStart="@+id/val_Petrol95FuelStatus"
+                    android:layout_alignTop="@id/txt_Petrol95QueueLength"
+                    android:text="12 vehicles"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_Petrol95WaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95QueueLength"
+                    android:layout_alignStart="@+id/txt_Petrol95Header"
+                    android:layout_marginTop="5dp"
+                    android:text="Wait Time"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol95WaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95QueueLength"
+                    android:layout_toEndOf="@id/txt_Petrol95WaitTime"
+                    android:layout_alignStart="@+id/val_Petrol95FuelStatus"
+                    android:layout_alignTop="@id/txt_Petrol95WaitTime"
+                    android:text="0h 20min"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_joinQueue_95"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_Petrol95WaitTime"
+                    android:layout_alignStart="@id/txt_Petrol95Header"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Join Queue"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueue_95"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_Petrol95WaitTime"
+                    android:layout_alignStart="@id/txt_Petrol95Header"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Leave Queue - REFILLED"
+                    android:visibility="gone"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueueNotFull_95"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/btn_joinQueue_95"
+                    android:layout_alignStart="@id/txt_Petrol95Header"
+                    android:backgroundTint="#BD483F"
+                    android:text="Leave Queue - Not REFILLED"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -89,8 +183,13 @@
                     android:id="@+id/txt_Petrol92Header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Petrol 92" />
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Petrol 92"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_Petrol92FuelStatus"
@@ -99,7 +198,93 @@
                     android:layout_below="@id/txt_Petrol92Header"
                     android:layout_alignStart="@+id/txt_Petrol92Header"
                     android:text="Fuel Status"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol92FuelStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92Header"
+                    android:layout_toEndOf="@id/txt_Petrol92FuelStatus"
+                    android:layout_marginLeft="32dp"
+                    android:text="Available"
                     android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_Petrol92QueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92FuelStatus"
+                    android:layout_alignStart="@+id/txt_Petrol92Header"
+                    android:layout_marginTop="5dp"
+                    android:text="Queue length"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol92QueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92FuelStatus"
+                    android:layout_toEndOf="@id/txt_Petrol92QueueLength"
+                    android:layout_alignStart="@+id/val_Petrol92FuelStatus"
+                    android:layout_alignTop="@id/txt_Petrol92QueueLength"
+                    android:text="8 vehicles"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_Petrol92WaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92QueueLength"
+                    android:layout_alignStart="@+id/txt_Petrol92Header"
+                    android:layout_marginTop="5dp"
+                    android:text="Wait Time"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_Petrol92WaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92QueueLength"
+                    android:layout_toEndOf="@id/txt_Petrol92WaitTime"
+                    android:layout_alignStart="@+id/val_Petrol92FuelStatus"
+                    android:layout_alignTop="@id/txt_Petrol92WaitTime"
+                    android:text="0h 10min"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_joinQueue_92"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_Petrol92WaitTime"
+                    android:layout_alignStart="@id/txt_Petrol92Header"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Join Queue"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueue_92"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_Petrol92WaitTime"
+                    android:layout_alignStart="@id/txt_Petrol92Header"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Leave Queue - REFILLED"
+                    android:visibility="gone"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueueNotFull_92"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/btn_joinQueue_92"
+                    android:layout_alignStart="@id/txt_Petrol92Header"
+                    android:backgroundTint="#BD483F"
+                    android:text="Leave Queue - Not REFILLED"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
@@ -128,8 +313,13 @@
                     android:id="@+id/txt_DieselHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Diesel" />
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Diesel"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txt_DieselFuelStatus"
@@ -138,7 +328,93 @@
                     android:layout_below="@id/txt_DieselHeader"
                     android:layout_alignStart="@+id/txt_DieselHeader"
                     android:text="Fuel Status"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_DieselFuelStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselHeader"
+                    android:layout_toEndOf="@id/txt_DieselFuelStatus"
+                    android:layout_marginLeft="32dp"
+                    android:text="Available"
                     android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_DieselQueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselFuelStatus"
+                    android:layout_alignStart="@+id/txt_DieselHeader"
+                    android:layout_marginTop="5dp"
+                    android:text="Queue length"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_DieselQueueLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselFuelStatus"
+                    android:layout_toEndOf="@id/txt_DieselQueueLength"
+                    android:layout_alignStart="@+id/val_DieselFuelStatus"
+                    android:layout_alignTop="@id/txt_DieselQueueLength"
+                    android:text="8 vehicles"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_DieselWaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselQueueLength"
+                    android:layout_alignStart="@+id/txt_DieselHeader"
+                    android:layout_marginTop="5dp"
+                    android:text="Wait Time"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/val_DieselWaitTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselQueueLength"
+                    android:layout_toEndOf="@id/txt_DieselWaitTime"
+                    android:layout_alignStart="@+id/val_DieselFuelStatus"
+                    android:layout_alignTop="@id/txt_DieselWaitTime"
+                    android:text="0h 10min"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_joinQueue_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_DieselWaitTime"
+                    android:layout_alignStart="@id/txt_DieselHeader"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Join Queue"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueue_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/txt_DieselWaitTime"
+                    android:layout_alignStart="@id/txt_DieselHeader"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#98C760"
+                    android:text="Leave Queue - REFILLED"
+                    android:visibility="gone"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_leaveQueueNotFull_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_below="@+id/btn_joinQueue_D"
+                    android:layout_alignStart="@id/txt_DieselHeader"
+                    android:backgroundTint="#BD483F"
+                    android:text="Leave Queue - Not REFILLED"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
