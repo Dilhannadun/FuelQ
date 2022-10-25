@@ -12,6 +12,33 @@ public class Shed implements Serializable {
     private float shedLatitude;
     private float shedLongitude;
     private String shedId;
+    private boolean petrol95Status;
+    private boolean petrol92Status;
+    private boolean dieselStatus;
+
+    public boolean isPetrol95Status() {
+        return petrol95Status;
+    }
+
+    public void setPetrol95Status(boolean petrol95Status) {
+        this.petrol95Status = petrol95Status;
+    }
+
+    public boolean isPetrol92Status() {
+        return petrol92Status;
+    }
+
+    public void setPetrol92Status(boolean petrol92Status) {
+        this.petrol92Status = petrol92Status;
+    }
+
+    public boolean isDieselStatus() {
+        return dieselStatus;
+    }
+
+    public void setDieselStatus(boolean dieselStatus) {
+        this.dieselStatus = dieselStatus;
+    }
 
     public Shed(String shedName, String shedLocation, String shedId) {
         this.shedName = shedName;
@@ -68,6 +95,9 @@ public class Shed implements Serializable {
 
         shed.setShedLatitude((float) jsonObject.getInt("stationLatitude"));
         shed.setShedLongitude((float) jsonObject.getInt("stationLongitude"));
+        shed.setPetrol95Status(jsonObject.getBoolean("petrol95Status"));
+        shed.setPetrol92Status(jsonObject.getBoolean("petrol92Status"));
+        shed.setDieselStatus(jsonObject.getBoolean("dieselStatus"));
 
         return  shed;
     }

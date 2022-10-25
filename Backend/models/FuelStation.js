@@ -18,34 +18,16 @@ const fuelStationSchema = mongoose.Schema({
         required: true
     },
     petrol95Status: {
-        totalAmount: {
-            type: Number,
-            required: false
-        },
-        remaining: {
-            type: Number,  
-            required: false
-        }
+        type: Boolean,
+        required: false  
     },
     petrol92Status: {
-        totalAmount: {
-            type: Number,
-            required: false
-        },
-        remaining: {
-            type: Number,  
-            required: false
-        }
+        type: Boolean,
+        required: false  
     },
     dieselStatus: {
-        totalAmount: {
-            type: Number,
-            required: false
-        },
-        remaining: {
-            type: Number,  
-            required: false
-        }
+        type: Boolean,
+        required: false  
     },
     queue: [{
         type: mongoose.Types.ObjectId,

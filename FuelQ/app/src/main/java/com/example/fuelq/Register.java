@@ -10,11 +10,13 @@ import android.widget.EditText;
 import com.example.fuelq.api.DBHandler;
 import com.example.fuelq.api.UserServices;
 import com.example.fuelq.models.User;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class Register extends AppCompatActivity {
     private Button registerBtn;
-    private EditText userEmail;
-    private EditText userPassword;
+    private TextInputEditText userEmail;
+    private TextInputEditText userPassword;
+    private TextInputEditText userConfirmPassword;
     private DBHandler dbHandler;
 
     @Override
@@ -26,6 +28,7 @@ public class Register extends AppCompatActivity {
 
         userEmail = findViewById(R.id.edt_RegisterEmail);
         userPassword = findViewById(R.id.edt_RegisterPassword);
+        userConfirmPassword = findViewById(R.id.edt_RegisterConfirmPassword);
         registerBtn = findViewById(R.id.btn_RegisterRegisterBtn);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
