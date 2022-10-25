@@ -3,7 +3,7 @@ package com.example.station_owner.model;
 import java.io.Serializable;
 
 public class StationOwner implements Serializable {
-    private String id;
+
     private String nic;
     private String station_id;
     private String email;
@@ -12,27 +12,12 @@ public class StationOwner implements Serializable {
     public StationOwner() {
     }
 
-    public StationOwner(String id, String nic, String station_id, String email, String password) {
-        this.id = id;
-        this.nic = nic;
-        this.station_id = station_id;
-        this.email = email;
-        this.password = password;
-    }
-
     public StationOwner(String nic, String station_id, String email, String password) {
+
         this.nic = nic;
         this.station_id = station_id;
         this.email = email;
         this.password = password;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNic() {
@@ -70,8 +55,7 @@ public class StationOwner implements Serializable {
     @Override
     public String toString() {
         return "StationOwner{" +
-                "id='" + id + '\'' +
-                ", nic='" + nic + '\'' +
+                "nic='" + nic + '\'' +
                 ", station_id='" + station_id + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

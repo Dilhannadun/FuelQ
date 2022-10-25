@@ -30,12 +30,13 @@
         android:id="@+id/owner_nic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/register_owner_nic_ph"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/register_title">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/owner_nic_edit"
+            android:hint="@string/register_owner_nic_ph"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,12 +44,14 @@
         android:id="@+id/station_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/register_station_id_ph"
+
         android:layout_marginTop="30dp"
         android:layout_below="@+id/owner_nic">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/station_id_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/register_station_id_ph"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,10 +61,12 @@
         android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/register_owner_email_ph"
+
         android:layout_marginTop="30dp"
         android:layout_below="@+id/station_id">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_email_edit"
+            android:hint="@string/register_owner_email_ph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -69,13 +74,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/register_password"
-        android:hint="@string/register_owner_password_ph"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/register_email"
         app:endIconMode="password_toggle">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_password_edit"
+            android:hint="@string/register_owner_password_ph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
