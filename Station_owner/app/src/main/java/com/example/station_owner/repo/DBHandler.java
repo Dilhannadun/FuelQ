@@ -23,7 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            db.execSQL("create table " + USER_TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, nic TEXT NOT NULL, station_id TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)");
+            db.execSQL("create table " + USER_TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, nic TEXT NOT NULL, station_id TEXT NOT NULL, phone TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)");
         } catch (SQLiteException e) {
             try {
                 throw new IOException(e);
@@ -44,6 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         values.put("nic", stationOwner.getNic());
         values.put("station_id", stationOwner.getStation_id());
+        values.put("phone", stationOwner.getPhone());
         values.put("email", stationOwner.getEmail());
         values.put("password", stationOwner.getPassword());
 
@@ -52,6 +53,33 @@ public class DBHandler extends SQLiteOpenHelper {
         if (result == -1) return false;
         else return true;
 
+    }
+
+    public boolean checkNic(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getNic()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkStation(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getStation_id()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkPhone(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getPhone()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean checkEmail(StationOwner owner) {
@@ -63,10 +91,10 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
-    public boolean checkEmailAndPassword(StationOwner owner) {
+    public boolean checkPhoneAndPassword(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE email=? AND password=?",
-                new String[]{owner.getEmail(), owner.getPassword()});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=? AND password=?",
+                new String[]{owner.getPhone(), owner.getPassword()});
         if (cursor.getCount() > 0) {
             return true;
         }

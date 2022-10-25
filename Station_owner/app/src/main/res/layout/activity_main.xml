@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_below="@+id/login_title">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_edit"
-            android:hint="@string/lg_ph_email"
+            android:id="@+id/phone_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:hint="@string/register_owner_phone_ph" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

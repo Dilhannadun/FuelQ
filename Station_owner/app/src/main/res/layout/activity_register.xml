@@ -1,104 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".activities.RegisterActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
-    <include
-        android:id="@+id/back_btn_of_register"
-        layout="@layout/activity_back_btn"
-        />
-    <TextView
-        android:id="@+id/register_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register_title"
-        android:textSize="35dp"
-        android:textColor="@color/orange"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/back_btn_of_register"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="cursive"
-        />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/owner_nic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/register_title">
-        <com.google.android.material.textfield.TextInputEditText
+        <include
+            android:id="@+id/back_btn_of_register"
+            layout="@layout/activity_back_btn" />
+
+        <TextView
+            android:id="@+id/register_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_btn_of_register"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:fontFamily="cursive"
+            android:text="@string/register_title"
+            android:textColor="@color/orange"
+            android:textSize="35dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/owner_nic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/owner_nic_edit"
-            android:hint="@string/register_owner_nic_ph"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/register_title"
+            android:layout_marginTop="50dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/station_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/owner_nic_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_owner_nic_ph" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/owner_nic">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/station_id_edit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/station_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_station_id_ph"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+
+            android:layout_below="@+id/owner_nic"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/station_id_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_station_id_ph" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/station_id">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_email_edit"
-            android:hint="@string/register_owner_email_ph"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/register_email"
-        app:endIconMode="password_toggle">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_password_edit"
-            android:hint="@string/register_owner_password_ph"
+            android:layout_below="@+id/station_id"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_phone_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_owner_phone_ph" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+
+            android:layout_below="@+id/register_phone"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_email_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_owner_email_ph" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_email"
+            android:layout_marginTop="30dp"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_owner_password_ph"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-
-    <Button
-        android:id="@+id/register_register_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register_btn"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/register_password"
-        android:layout_centerHorizontal="true"
-        />
+        <Button
+            android:id="@+id/register_register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/register_btn" />
 
     </RelativeLayout>
-</ScrollView >
+</ScrollView>

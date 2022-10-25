@@ -17,17 +17,15 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
     private Button loginRegisterBtn, loginBtn;
-    private TextInputEditText email, password;
+    private TextInputEditText phone, password;
     private DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         openRegisterScreen();
         login();
-
     }
 
     public void openRegisterScreen() {
@@ -39,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login() {
-        email = findViewById(R.id.email_edit);
+        phone = findViewById(R.id.phone_edit);
         password = findViewById(R.id.password_edit);
         loginBtn = findViewById(R.id.login_btn);
 
@@ -47,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
             StationOwner owner = new StationOwner();
             dbHandler = new DBHandler(getApplicationContext());
 
-            owner.setEmail(email.getText().toString());
+            owner.setPhone(phone.getText().toString());
             owner.setPassword(password.getText().toString());
 
-            if (TextUtils.isEmpty(owner.getEmail()) || TextUtils.isEmpty(owner.getPassword())) {
+            if (TextUtils.isEmpty(owner.getPhone()) || TextUtils.isEmpty(owner.getPassword())) {
                 Toast.makeText(MainActivity.this, "Fields Can not be Empty !", Toast.LENGTH_SHORT).show();
             } else {
-                boolean checkCredentials = dbHandler.checkEmailAndPassword(owner);
+                boolean checkCredentials = dbHandler.checkPhoneAndPassword(owner);
                 if (checkCredentials) {
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, HomeActivity.class);

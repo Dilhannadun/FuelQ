@@ -14,6 +14,7 @@
     <string name="register_station_id_ph">Station Id</string>
     <string name="register_location_ph">Station location</string>
     <string name="register_owner_username_ph">Username</string>
+    <string name="register_owner_phone_ph">Phone Number</string>
     <string name="register_owner_email_ph">Email</string>
     <string name="register_owner_password_ph">Password</string>
     <string name="register_btn">Register</string>
