@@ -1,20 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FuelTypeFragment">
+    tools:context=".fragments.FuelTypeFragment">
 
-    <TextView
-        android:id="@+id/login_title"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fuel_type_title"
-        android:textSize="30dp"
-        android:textColor="@color/orange"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="cursive"
-        />
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/fuel_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="cursive"
+            android:text="@string/fuel_history_title"
+            android:textColor="@color/orange"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/filter_l"
+            android:layout_below="@+id/fuel_status_title"
+            android:layout_marginTop="40dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Filter By Date : "/>
+
+            <Button
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Select Date"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/in_date"
+                android:paddingRight="10dp"
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/a_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_l"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            app:cardBackgroundColor="@color/light_indigo"
+            app:cardElevation="5dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="1dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp">
+
+                        <TableRow
+                            android:background="@color/orange"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:padding="3dip"
+                                android:text="@string/Fuel_Type" />
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:padding="3dip"
+                                android:text="@string/arrived" />
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:padding="3dip"
+                                android:text="@string/finished" />
+                        </TableRow>
+
+                        <TableRow android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:padding="3dip"
+                                android:text="@string/Oct_92" />
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:text="2022-12-01 13:11:23">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:text="2022-12-01 13:11:23">
+
+                            </TextView>
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
