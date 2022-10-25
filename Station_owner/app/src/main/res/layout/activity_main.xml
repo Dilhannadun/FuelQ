@@ -26,10 +26,11 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/lg_ph_email"
         android:layout_marginTop="100dp"
         android:layout_below="@+id/login_title">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_edit"
+            android:hint="@string/lg_ph_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -38,13 +39,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:hint="@string/lg_ph_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/username"
     app:endIconMode="password_toggle">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_edit"
+            android:hint="@string/lg_ph_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -66,15 +68,14 @@
         />
 
 
-    <Button
-        android:id="@+id/login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lg_btn"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/forgot_password_btn"
-        android:layout_centerHorizontal="true"
-        />
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forgot_password_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/lg_btn" />
 
         <Button
             android:id="@+id/login_register_btn"

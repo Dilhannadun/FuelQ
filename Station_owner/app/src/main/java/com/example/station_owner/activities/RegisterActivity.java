@@ -13,7 +13,7 @@ import com.example.station_owner.R;
 import com.example.station_owner.model.StationOwner;
 import com.example.station_owner.repo.DBHandler;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -56,8 +56,6 @@ public class RegisterActivity extends AppCompatActivity {
             stationOwner.setStation_id(stationId);
             stationOwner.setEmail(email);
             stationOwner.setPassword(password);
-
-
 
             if(TextUtils.isEmpty(stationOwner.getNic()) || TextUtils.isEmpty(stationOwner.getStation_id()) ||
                     TextUtils.isEmpty(stationOwner.getEmail()) || TextUtils.isEmpty(stationOwner.getPassword())){
