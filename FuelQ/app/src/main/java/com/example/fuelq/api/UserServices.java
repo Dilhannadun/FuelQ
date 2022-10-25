@@ -17,14 +17,17 @@ import org.json.JSONObject;
 public class UserServices {
     private Context context;
     private RequestQueue queue;
+    private DBHandler dbHandler;
     String URL = "http://192.168.1.187/api/users/";
 
     public UserServices(Context context) {
         this.context = context;
         this.queue = Volley.newRequestQueue(this.context);
+        this.dbHandler = new DBHandler(context);
     }
 
     public void register(User user) {
+
         JSONObject reqObj = new JSONObject();
         try {
             reqObj.put("email", user.getEmail());
@@ -39,7 +42,8 @@ public class UserServices {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject res = response.getJSONObject("user");
-                            Log.d("response", res.toString());
+                            user.setId(res.getString("_id"));
+                            dbHandler.addNewUser(user);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
