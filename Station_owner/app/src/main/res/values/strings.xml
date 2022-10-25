@@ -51,4 +51,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="reset_password_title">Reset Password</string>
+    <string name="rp_ph_ph">Registered Phone Number</string>
+    <string name="rp_nic_ph">Registered NIC</string>
+    <string name="rp_si_ph">Registered Station ID</string>
+    <string name="rp_pas_ph">New Password</string>
+    <string name="rp_btn">RESET</string>
+    <string name="rp_c_btn">CANCEL</string>
+
 </resources>

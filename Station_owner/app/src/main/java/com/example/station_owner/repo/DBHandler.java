@@ -57,7 +57,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean checkNic(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getNic()});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE nic=?", new String[]{owner.getNic()});
         if (cursor.getCount() > 0) {
             return true;
         }
@@ -75,7 +75,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean checkPhone(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getPhone()});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=?", new String[]{owner.getPhone()});
         if (cursor.getCount() > 0) {
             return true;
         }
@@ -97,6 +97,22 @@ public class DBHandler extends SQLiteOpenHelper {
                 new String[]{owner.getPhone(), owner.getPassword()});
         if (cursor.getCount() > 0) {
             return true;
+        }
+        return false;
+    }
+
+    public boolean resetPassword(StationOwner owner) {
+        boolean cPhone = checkPhone(owner);
+        boolean cStation = checkStation(owner);
+        if (cPhone && cStation) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery("UPDATE " + USER_TABLE + " SET password = "+ owner.getPassword() +" WHERE phone=? AND station_id=?",
+                    new String[]{owner.getPhone(), owner.getStation_id()});
+            if (cursor.getCount() > 0) {
+                return true;
+            }
+        } else {
+            return false;
         }
         return false;
     }

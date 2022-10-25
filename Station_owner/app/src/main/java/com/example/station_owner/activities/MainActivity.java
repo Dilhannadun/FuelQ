@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.station_owner.R;
+import com.example.station_owner.dialogs.FpDialog;
+import com.example.station_owner.dialogs.FpDialogListener;
 import com.example.station_owner.model.StationOwner;
 import com.example.station_owner.repo.DBHandler;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class MainActivity extends AppCompatActivity {
-    private Button loginRegisterBtn, loginBtn;
+public class MainActivity extends AppCompatActivity implements FpDialogListener {
+    private Button loginRegisterBtn, loginBtn, forgotPassBtn;
     private TextInputEditText phone, password;
     private DBHandler dbHandler;
 
@@ -26,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         openRegisterScreen();
         login();
+        openForgotPass();
+    }
+
+    public void openForgotPass() {
+        forgotPassBtn = findViewById(R.id.forgot_password_btn);
+        forgotPassBtn.setOnClickListener(v -> {
+            FpDialog fpDialog = new FpDialog();
+            fpDialog.show(getSupportFragmentManager(), "Forgot Password Dialog");
+        });
+
     }
 
     public void openRegisterScreen() {
@@ -61,5 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void applyTexts(String nic, String stationId, String newPass) {
+
     }
 }
