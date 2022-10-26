@@ -99,7 +99,16 @@
                     android:layout_toEndOf="@id/txt_Petrol95QueueLength"
                     android:layout_alignStart="@+id/val_Petrol95FuelStatus"
                     android:layout_alignTop="@id/txt_Petrol95QueueLength"
-                    android:text="12 vehicles"
+                    android:text="0"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol95FuelStatus"
+                    android:layout_toEndOf="@id/val_Petrol95QueueLength"
+                    android:layout_alignTop="@id/txt_Petrol95QueueLength"
+                    android:text=" vehicles"
                     android:textSize="12dp" />
 
                 <TextView
@@ -120,7 +129,7 @@
                     android:layout_toEndOf="@id/txt_Petrol95WaitTime"
                     android:layout_alignStart="@+id/val_Petrol95FuelStatus"
                     android:layout_alignTop="@id/txt_Petrol95WaitTime"
-                    android:text="0h 20min"
+                    android:text="0h 0min"
                     android:textSize="12dp" />
 
                 <Button
@@ -228,7 +237,16 @@
                     android:layout_toEndOf="@id/txt_Petrol92QueueLength"
                     android:layout_alignStart="@+id/val_Petrol92FuelStatus"
                     android:layout_alignTop="@id/txt_Petrol92QueueLength"
-                    android:text="8 vehicles"
+                    android:text="0"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Petrol92FuelStatus"
+                    android:layout_toEndOf="@id/val_Petrol92QueueLength"
+                    android:layout_alignTop="@id/txt_Petrol92QueueLength"
+                    android:text=" vehicles"
                     android:textSize="12dp" />
 
                 <TextView
@@ -249,7 +267,7 @@
                     android:layout_toEndOf="@id/txt_Petrol92WaitTime"
                     android:layout_alignStart="@+id/val_Petrol92FuelStatus"
                     android:layout_alignTop="@id/txt_Petrol92WaitTime"
-                    android:text="0h 10min"
+                    android:text="0h 0min"
                     android:textSize="12dp" />
 
                 <Button
@@ -358,7 +376,16 @@
                     android:layout_toEndOf="@id/txt_DieselQueueLength"
                     android:layout_alignStart="@+id/val_DieselFuelStatus"
                     android:layout_alignTop="@id/txt_DieselQueueLength"
-                    android:text="8 vehicles"
+                    android:text="0"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_DieselFuelStatus"
+                    android:layout_toEndOf="@id/val_DieselQueueLength"
+                    android:layout_alignTop="@id/val_DieselQueueLength"
+                    android:text=" vehicles"
                     android:textSize="12dp" />
 
                 <TextView
@@ -379,7 +406,7 @@
                     android:layout_toEndOf="@id/txt_DieselWaitTime"
                     android:layout_alignStart="@+id/val_DieselFuelStatus"
                     android:layout_alignTop="@id/txt_DieselWaitTime"
-                    android:text="0h 10min"
+                    android:text="0h 0min"
                     android:textSize="12dp" />
 
                 <Button
@@ -392,6 +419,8 @@
                     android:backgroundTint="#98C760"
                     android:text="Join Queue"
                     android:textSize="10sp" />
+
+
 
                 <Button
                     android:id="@+id/btn_leaveQueue_D"

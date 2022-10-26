@@ -1,3 +1,6 @@
+// Model for FuelStation
+// IT19069814
+
 const mongoose = require('mongoose');
 
 const fuelStationSchema = mongoose.Schema({
@@ -30,9 +33,22 @@ const fuelStationSchema = mongoose.Schema({
         required: false  
     },
     queue: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Queue',
-        required: false
+        fuelType: {
+            type: String,
+            required: false
+        },
+        numberOfVehicles: {
+            type: Number,
+            required: false
+        },
+        numberOfVehiclesOut: {
+            type: Number,
+            required: false
+        },
+        totalTime: {
+            type: Number,
+            required: false
+        }
     }]
 })
 

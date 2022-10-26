@@ -1,3 +1,6 @@
+// Model for Queue
+// IT19069814
+
 const mongoose = require('mongoose');
 
 const fuelQueueSchema = mongoose.Schema({

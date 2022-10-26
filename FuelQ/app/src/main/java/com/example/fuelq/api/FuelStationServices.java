@@ -3,6 +3,7 @@ package com.example.fuelq.api;
 import android.content.Context;
 import android.location.Location;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,7 +30,6 @@ public class FuelStationServices {
     }
 
     public void getNearbySheds(Location location) throws JSONException {
-        Log.e("msg1", "Method started");
         String reqUrl = URL + "getNearby";
         ArrayList<Shed> nearbySheds = new ArrayList<>();
         JSONObject userLocation = new JSONObject("{\n" +
@@ -68,26 +68,36 @@ public class FuelStationServices {
         this.queue.add(req);
     }
 
-//    public void getTest() {
-//        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, URL,
-//                null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            JSONObject res = response.getJSONObject("user");
-//                            Log.d("response", res.toString());
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        error.printStackTrace();
-//                    }
-//                });
-//        this.queue.add(req);
-//    }
+    public void joinOrLeaveQueue(String fuelType, String stationId, boolean isJoining, int time) throws JSONException {
+        String reqUrl = URL + "updateQueue";
+
+        JSONObject reqObj = new JSONObject("{\n" +
+                "    \"fuelType\": " + fuelType + ",\n" +
+                "    \"isJoining\": " + isJoining + ",\n" +
+                "    \"id\": " + stationId + ",\n" +
+                "    \"time\": " + time + "\n" +
+                "}");
+
+        System.out.println(reqObj);
+
+        JsonObjectRequest joinQueueReq = new JsonObjectRequest(
+                Request.Method.PATCH,
+                reqUrl,
+                reqObj,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String toastMessage = "Joined queue!";
+                        if (!isJoining) toastMessage = "Left Queue!";
+                        Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+    }
 }

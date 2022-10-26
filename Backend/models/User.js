@@ -1,3 +1,6 @@
+// Model for User
+// IT19069814
+
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({

@@ -145,6 +145,7 @@ public class Login extends AppCompatActivity {
                             System.out.println(sheds.length());
                             for (int i = 0; i < sheds.length(); i++) {
                                 JSONObject shed = sheds.getJSONObject(i);
+                                System.out.println(shed);
                                 nearbySheds.add(Shed.createShedsFromJSON(shed));
                             }
                         } catch (JSONException e) {

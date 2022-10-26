@@ -1,5 +1,9 @@
+// User services class
+// IT19069814
+
 const User = require('../models/User');
 
+// Method responsible for adding a new user
 const addUser = async (req, res) => {
     console.log(req.body)
     const newUser = new User(req.body);
@@ -11,6 +15,7 @@ const addUser = async (req, res) => {
     });
 }
 
+// Retreiving a user from the ID
 const getUser = async (req, res) => {
     const user = await User.findById(req.params.id);
 

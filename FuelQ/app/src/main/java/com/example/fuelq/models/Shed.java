@@ -1,5 +1,6 @@
 package com.example.fuelq.models;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +16,15 @@ public class Shed implements Serializable {
     private boolean petrol95Status;
     private boolean petrol92Status;
     private boolean dieselStatus;
+    private ArrayList<Queue> queues;
+
+    public ArrayList<Queue> getQueues() {
+        return queues;
+    }
+
+    public void setQueues(ArrayList<Queue> queues) {
+        this.queues = queues;
+    }
 
     public boolean isPetrol95Status() {
         return petrol95Status;
@@ -92,6 +102,7 @@ public class Shed implements Serializable {
                 jsonObject.getString("stationLocation"),
                 jsonObject.getString("_id")
         );
+        ArrayList<Queue> queues = new ArrayList<>();
 
         shed.setShedLatitude((float) jsonObject.getInt("stationLatitude"));
         shed.setShedLongitude((float) jsonObject.getInt("stationLongitude"));
@@ -99,15 +110,13 @@ public class Shed implements Serializable {
         shed.setPetrol92Status(jsonObject.getBoolean("petrol92Status"));
         shed.setDieselStatus(jsonObject.getBoolean("dieselStatus"));
 
-        return  shed;
-    }
-
-    public static ArrayList<Shed> createSheds(int num) {
-        ArrayList<Shed> sheds = new ArrayList<Shed>();
-
-        for (int i = 0; i < num; i++) {
-            sheds.add(new Shed("Shed " + i, "Location " + i, "aa"));
+        JSONArray queueArray = jsonObject.getJSONArray("queue");
+        for (int i = 0; i < queueArray.length(); i++) {
+            JSONObject queue = queueArray.getJSONObject(i);
+            System.out.println(queue);
+            queues.add(Queue.createQueueFromJSON(queue));
         }
-        return sheds;
+        shed.setQueues(queues);
+        return  shed;
     }
 }
