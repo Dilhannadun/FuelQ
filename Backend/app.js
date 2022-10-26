@@ -6,7 +6,7 @@ require("dotenv").config();
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var stationRouter = require("./routes/station");
-var stationOwnerRouter = require("./routes/station_owner");
+var stationOwnerRouter = require("./routes/stationOwnerRoutes");
 
 var app = express();
 
