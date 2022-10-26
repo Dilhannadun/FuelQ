@@ -1,3 +1,7 @@
+//IT19149318
+//This DH handler class use to connect to Sqlite DB and handle its methods
+
+
 package com.example.station_owner.repo;
 
 import android.content.ContentValues;
@@ -23,7 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            db.execSQL("create table " + USER_TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, nic TEXT NOT NULL, station_id TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)");
+            db.execSQL("create table " + USER_TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, nic TEXT NOT NULL, station_id TEXT NOT NULL, phone TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)");
         } catch (SQLiteException e) {
             try {
                 throw new IOException(e);
@@ -38,12 +42,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("drop table if exists " + USER_TABLE);
     }
 
-    public boolean insertDate(StationOwner stationOwner) {
+    //This is the owner registration method
+    public boolean registerOwner(StationOwner stationOwner) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("nic", stationOwner.getNic());
         values.put("station_id", stationOwner.getStation_id());
+        values.put("phone", stationOwner.getPhone());
         values.put("email", stationOwner.getEmail());
         values.put("password", stationOwner.getPassword());
 
@@ -54,6 +60,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    //This method will check if NIC is already exists
+    public boolean checkNic(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE nic=?", new String[]{owner.getNic()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //This method will check if station id is already exists
+    public boolean checkStation(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getStation_id()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //This method will check if phone is already exists
+    public boolean checkPhone(StationOwner owner) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=?", new String[]{owner.getPhone()});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //This method will check if email is already exists
     public boolean checkEmail(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE email=?", new String[]{owner.getEmail()});
@@ -63,12 +100,30 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
-    public boolean checkEmailAndPassword(StationOwner owner) {
+    //This method will check if the login credentials are correct
+    public boolean checkPhoneAndPassword(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE email=? AND password=?",
-                new String[]{owner.getEmail(), owner.getPassword()});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=? AND password=?",
+                new String[]{owner.getPhone(), owner.getPassword()});
         if (cursor.getCount() > 0) {
             return true;
+        }
+        return false;
+    }
+
+    //This method will update the password
+    public boolean resetPassword(StationOwner owner) {
+        boolean cPhone = checkPhone(owner);
+        boolean cStation = checkStation(owner);
+        if (cPhone && cStation) {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery("UPDATE " + USER_TABLE + " SET password = "+ owner.getPassword() +" WHERE phone=? AND station_id=?",
+                    new String[]{owner.getPhone(), owner.getStation_id()});
+            if (cursor.getCount() > 0) {
+                return true;
+            }
+        } else {
+            return false;
         }
         return false;
     }

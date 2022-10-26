@@ -81,6 +81,7 @@
                                 android:text="@string/Oct_92" />
 
                             <RadioGroup
+                                android:id="@+id/rbg_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -109,6 +110,7 @@
                                 android:text="@string/Oct_95" />
 
                             <RadioGroup
+                                android:id="@+id/rbg_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -137,6 +139,7 @@
                                 android:text="@string/Diesel" />
 
                             <RadioGroup
+                                android:id="@+id/rbg_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
@@ -171,6 +174,7 @@
                     >
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/statusUpdateBtn"
                         style="?attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

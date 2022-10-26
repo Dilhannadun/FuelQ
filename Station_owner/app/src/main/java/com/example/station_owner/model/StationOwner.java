@@ -1,3 +1,7 @@
+
+//IT19149318
+//This class is the model of station owner
+
 package com.example.station_owner.model;
 
 import java.io.Serializable;
@@ -6,19 +10,13 @@ public class StationOwner implements Serializable {
 
     private String nic;
     private String station_id;
+    private String phone;
     private String email;
     private String password;
 
     public StationOwner() {
     }
 
-    public StationOwner(String nic, String station_id, String email, String password) {
-
-        this.nic = nic;
-        this.station_id = station_id;
-        this.email = email;
-        this.password = password;
-    }
 
     public String getNic() {
         return nic;
@@ -34,6 +32,14 @@ public class StationOwner implements Serializable {
 
     public void setStation_id(String station_id) {
         this.station_id = station_id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -57,6 +63,7 @@ public class StationOwner implements Serializable {
         return "StationOwner{" +
                 "nic='" + nic + '\'' +
                 ", station_id='" + station_id + '\'' +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';

@@ -1,3 +1,6 @@
+//IT19149318
+//This is the Home activity of the application which will land after login
+
 package com.example.station_owner.activities;
 
 import androidx.annotation.NonNull;
@@ -31,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         getProfileMenu();
     }
 
-
+    //This method manages the bottom navigation functions
     protected void bottomNavigation(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         final FragmentManager fragmentManager = getSupportFragmentManager();
@@ -58,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.nav_item_1);
     }
 
+    //This method will open the userprofile
     protected void getProfileMenu (){
         ImageButton button = findViewById(R.id.profile_img_btn);
         button.setOnClickListener(new View.OnClickListener() {
