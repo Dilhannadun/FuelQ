@@ -1,3 +1,6 @@
+//IT19149318
+//This is the Login activity of the application
+
 package com.example.station_owner.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements FpDialogListener 
         openForgotPass();
     }
 
+    //This method will open the forgot password screen
     public void openForgotPass() {
         forgotPassBtn = findViewById(R.id.forgot_password_btn);
         forgotPassBtn.setOnClickListener(v -> {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements FpDialogListener 
 
     }
 
+    //This method will open the registration screen
     public void openRegisterScreen() {
         loginRegisterBtn = findViewById(R.id.login_register_btn);
         loginRegisterBtn.setOnClickListener(v -> {
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements FpDialogListener 
         });
     }
 
+
+    //This method is used to login and authentication
     public void login() {
         phone = findViewById(R.id.phone_edit);
         password = findViewById(R.id.password_edit);
@@ -67,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements FpDialogListener 
                 if (checkCredentials) {
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, HomeActivity.class);
+                    intent.putExtra("loggedIn_owner", owner);
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Invalid Credentials !", Toast.LENGTH_SHORT).show();

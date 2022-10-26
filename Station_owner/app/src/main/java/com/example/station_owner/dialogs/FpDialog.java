@@ -1,3 +1,7 @@
+//IT19149318
+//This Activity is the forgot password dialog
+
+
 package com.example.station_owner.dialogs;
 
 import android.app.AlertDialog;

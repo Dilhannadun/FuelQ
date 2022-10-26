@@ -1,3 +1,7 @@
+//IT19149318
+//This DH handler class use to connect to Sqlite DB and handle its methods
+
+
 package com.example.station_owner.repo;
 
 import android.content.ContentValues;
@@ -38,7 +42,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("drop table if exists " + USER_TABLE);
     }
 
-    public boolean insertDate(StationOwner stationOwner) {
+    //This is the owner registration method
+    public boolean registerOwner(StationOwner stationOwner) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -55,6 +60,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    //This method will check if NIC is already exists
     public boolean checkNic(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE nic=?", new String[]{owner.getNic()});
@@ -64,6 +70,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    //This method will check if station id is already exists
     public boolean checkStation(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE station_id=?", new String[]{owner.getStation_id()});
@@ -73,6 +80,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    //This method will check if phone is already exists
     public boolean checkPhone(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=?", new String[]{owner.getPhone()});
@@ -82,6 +90,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    //This method will check if email is already exists
     public boolean checkEmail(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE email=?", new String[]{owner.getEmail()});
@@ -91,6 +100,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    //This method will check if the login credentials are correct
     public boolean checkPhoneAndPassword(StationOwner owner) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE + " WHERE phone=? AND password=?",
@@ -101,6 +111,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return false;
     }
 
+    //This method will update the password
     public boolean resetPassword(StationOwner owner) {
         boolean cPhone = checkPhone(owner);
         boolean cStation = checkStation(owner);

@@ -1,3 +1,7 @@
+
+//IT19149318
+//This class is the model of station owner
+
 package com.example.station_owner.model;
 
 import java.io.Serializable;
