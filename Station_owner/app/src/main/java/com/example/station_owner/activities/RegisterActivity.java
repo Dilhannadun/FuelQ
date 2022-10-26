@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if(!checkStation) {
                         if(!checkPhone) {
                             if (!checkEmail) {
-                                //registerData(stationOwner);
+                                registerData(stationOwner);
                                 boolean insert = dbHandler.registerOwner(stationOwner);
                                 if (insert) {
                                     Toast.makeText(RegisterActivity.this, "Station Owner Registered", Toast.LENGTH_SHORT).show();

@@ -14,7 +14,7 @@ import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 
 public interface APIService {
-    String BASE_URL = "https://192.168.154.24/owner/";
+    String BASE_URL = "https://IP_ADDRESS/owner/";
 
     @POST("/register")
     Call<StationOwner> registerOwner(@Body JsonObject jsonObject);
