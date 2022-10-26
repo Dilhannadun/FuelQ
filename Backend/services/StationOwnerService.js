@@ -1,6 +1,10 @@
+//IT19149318
+//These are the services of the station owner
+
 const Owner = require("../models/StationOwner");
 const Station = require("../models/FuelStation");
 
+//owner registration service
 const addOwner = async (req, res) => {
   console.log(req.body);
   const newOwner = new Owner(req.body);
@@ -15,6 +19,7 @@ const addOwner = async (req, res) => {
     });
 };
 
+//service for the fuel status update
 const updateFuleStatus = async (req, res) => {
   const station = await Station.findById(req.body.sataion);
   station.petrol95Status = req.body.petrol95;

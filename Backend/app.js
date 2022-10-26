@@ -17,6 +17,8 @@ app.use(cookieParser());
 app.use("/api", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/stations", stationRouter);
+
+//base route of the station owner
 app.use("/api/owner", stationOwnerRouter);
 
 mongoose
