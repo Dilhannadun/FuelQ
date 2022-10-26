@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,12 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_below="@+id/login_title">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_edit"
-            android:hint="@string/lg_ph_email"
+            android:id="@+id/phone_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:hint="@string/register_owner_phone_ph" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -54,18 +55,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/forgot_password_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
-        android:textColor="@color/blue"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/password"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        />
+        <Button
+            android:id="@+id/forgot_password_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/blue"
+            android:textSize="15dp" />
 
 
         <Button
