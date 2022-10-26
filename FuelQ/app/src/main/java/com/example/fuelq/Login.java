@@ -24,6 +24,7 @@ import com.example.fuelq.models.Shed;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,9 +34,12 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
+
     private TextView resetPassword;
     private Button loginBtn;
     private Button registerBtn;
+    private TextInputEditText userEmail;
+    private TextInputEditText userPassword;
     private FusedLocationProviderClient fusedLocationClient;
     private ArrayList<Shed> nearbySheds = new ArrayList<>();
     private final String URL = "http://192.168.1.187/api/";
@@ -95,6 +99,10 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void login() {
+
+    }
+
     private void getNearbySheds(FuelStationServices services) {
         System.out.println("In nearby sheds");
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -126,8 +134,6 @@ public class Login extends AppCompatActivity {
                 "    \"latitude\": " + 7.273081 + ",\n" +
                 "    \"longitude\": " + 80.611952 + "\n" +
                 "}");
-        System.out.println(userLocation);
-        Log.e("url", reqUrl);
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST,
                 reqUrl,
                 userLocation,
@@ -141,7 +147,6 @@ public class Login extends AppCompatActivity {
                                 JSONObject shed = sheds.getJSONObject(i);
                                 nearbySheds.add(Shed.createShedsFromJSON(shed));
                             }
-                            Log.e("sheds..", String.valueOf(nearbySheds.size()));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -154,7 +159,6 @@ public class Login extends AppCompatActivity {
                     }
                 }
         );
-        Log.e("sheds here..", "sheds");
         this.queue.add(req);
     }
 }
