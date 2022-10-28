@@ -3,13 +3,17 @@
 
 var express = require("express");
 const {
+  getOwnerStationByID,
   updateFuleStatus,
   addOwner,
 } = require("../services/StationOwnerService");
 var router = express.Router();
 
+//get shed by id
+router.get("/:id", getOwnerStationByID);
+
 //upadte fule status route
-router.put("/update-fuel-status", updateFuleStatus);
+router.patch("/update-fuel-status/:id", updateFuleStatus);
 
 //register owner route
 router.post("/register", addOwner);

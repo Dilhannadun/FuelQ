@@ -4,6 +4,22 @@
 const Owner = require("../models/StationOwner");
 const Station = require("../models/FuelStation");
 
+//get Station by id
+const getOwnerStationByID = async (req, res) => {
+  let ownerStation;
+  console.log(req.params.id);
+  Station.findOne(
+    {
+      stationId: req.params.id,
+    },
+    function (err, station) {
+      ownerStation = station;
+      console.log(ownerStation);
+      res.status(200).json(ownerStation);
+    }
+  );
+};
+
 //owner registration service
 const addOwner = async (req, res) => {
   console.log(req.body);
@@ -21,23 +37,21 @@ const addOwner = async (req, res) => {
 
 //service for the fuel status update
 const updateFuleStatus = async (req, res) => {
-  const station = await Station.findById(req.body.sataion);
-  station.petrol95Status = req.body.petrol95;
-  station.petrol92Status = req.body.petrol92;
-  station.dieselStatus = req.body.diesel;
-
-  station
-    .save()
-    .then((data) => {
-      res.status(200).json({ owner: data });
-      console.log(data);
-    })
-    .catch((err) => {
-      res.status(400).json({ error: err });
-    });
+  let status = await Station.updateOne(
+    { stationId: req.params.id },
+    {
+      $set: {
+        petrol95Status: req.body.petrol95,
+        petrol92Status: req.body.petrol92,
+        dieselStatus: req.body.diesel,
+      },
+    }
+  );
+  res.status(200).json(status);
 };
 
 module.exports = {
+  getOwnerStationByID,
   addOwner,
   updateFuleStatus,
 };
